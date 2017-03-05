@@ -1,0 +1,146 @@
+1:
+  Title:
+    - "Bound Volumes: Rare and Special Materials (p.19)"
+    - "Documents (Unbound): Manuscripts and Other Rare and Special Materials (p. 24)"
+  File_format:
+    - TIFF
+    - JPEG2000
+    - PDF/A
+  Pixel_dimensions: 400
+  Bit_depth:
+    - 16
+  Colorspace:
+    - Adobe 1998
+    - ProPhoto
+    - ECIRGBv2
+  Color:
+    - Color
+2:
+  Title:
+    - "Bound Volumes: General Collections (p. 22)"
+  File_format:
+    - TIFF
+    - JPEG2000
+    - PDF/A
+  Pixel_dimensions: 400
+  Bit_depth:
+    - 8
+    - 16
+  Colorspace:
+    - Grey Gamma 2.2
+    - Adobe 1998
+    - ProPhoto
+    - ECIRGBv2
+  Color:
+    - Color
+    - Grayscale
+3:
+  Title:
+    - "Documents (Unbound): General Collections (p. 27)"
+  File_format:
+    - TIFF
+    - JPEG2000
+    - PDF/A
+  Pixel_dimensions: 400
+  Bit_depth:
+    - 16
+  Colorspace:
+    - Adobe 1998
+    - ProPhoto
+    - ECIRGBv2
+  Color:
+    - Color
+4:
+  Title:
+    - "Oversize Items: Maps, Posters, and Other Materials* (p.29)"
+  File_format:
+    - TIFF
+    - JPEG2000
+  Pixel_dimensions: 400
+  Bit_depth:
+    - 8
+    - 16
+  Colorspace:
+    - Adobe 1998
+    - ProPhoto
+    - ECIRGBv2
+    - Grey Gamma 2.2
+  Color:
+    - Color
+    - Greyscale
+5:
+  Title:
+    - "Prints and Photographs (p. 34)"
+  File_format:
+    - TIFF
+  Pixel_dimensions: 600
+  Bit_depth:
+    - 16
+  Colorspace:
+    - Adobe 1998
+    - ProPhoto
+    - ECIRGBv2
+  Color:
+    - Color
+6:
+  Title:
+    - "Photographic Negatives: 35mm to 4”x5” (p.41)"
+    - "Photographic Transparencies: 35mm to 4”x5” (p. 37)"
+  File_format:
+    - TIFF
+  Pixel_dimensions: 4000
+  Bit_depth:
+    - 16
+  Colorspace:
+    - Adobe 1998
+    - ProPhoto
+    - ECIRGBv2
+    - Grey Gamma 2.2
+  Color:
+    - Color
+    - Greyscale
+7:
+  Title:
+    - "Photographic Transparencies Larger than 4” x 5” (p. 39)"
+    - "Photographic Negatives Larger than 4” x 5” (p. 44)"
+  File_format:
+    - TIFF
+  Pixel_dimensions: 2000
+  Bit_depth:
+    - 16
+  Colorspace:
+    - Adobe 1998
+    - ProPhoto
+    - ECIRGBv2
+    - Grey Gamma 2.2
+  Color:
+    - Color
+    - Greyscale
+8:
+  Title:
+    - "Paintings and Other Two-Dimensional Art (Other Than Prints)* (p. 47)"
+  File_format:
+    - TIFF
+  Pixel_dimensions: 600
+  Long_side: 12000
+  Bit_depth:
+    - 16
+  Colorspace:
+    - Adobe 1998
+    - ProPhoto
+    - ECIRGBv2
+  Color:
+    - Color
+9:
+  Title:
+    - "Printed Matter, Manuscripts, and Other Documents on Microfilm"
+  File_format:
+    - TIFF
+    - JPEG2000
+  Pixel_dimensions: 4000
+  Bit_depth:
+    - 8
+  Colorspace:
+    - Grey Gamma 2.2
+  Color:
+    - Greyscale
