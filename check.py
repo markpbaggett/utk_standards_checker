@@ -1,7 +1,6 @@
 import exiftool
 import os
 import argparse
-import mimetypes
 import yaml
 
 parser = argparse.ArgumentParser(description='Enter Your File Path')
@@ -30,12 +29,14 @@ def choose_files():
                 write_exif_to_file(all_exif)
                 # all_mimes = grab_mime_types(files)
                 check_color_space(all_exif)
+                check_file_formats(all_exif)
     print_dictionary(affected_files)
 
+
 def check_color_space(x):
-    processed = 0
+    # processed = 0
     for data in x:
-        print("Processing {0}".format(data['File:FileName']))
+        print("Checking {0}'s colorspace.".format(data['File:FileName']))
         good_colorspace = []
         for okay in settings[int(utk_standard)]['Colorspace']:
             checked_standard = []
@@ -48,8 +49,11 @@ def check_color_space(x):
             print("\t{0} failed colorspace check.".format(data['File:FileName']))
             new_key = data['File:FileName']
             new_value = 'Colorspace does not match standard.'
-            affected_files[new_key] = new_value
-
+            if new_key in affected_files:
+                affected_files[new_key].append(new_value)
+            else:
+                affected_files[new_key] = []
+                affected_files[new_key].append(new_value)
 
 # def check_bit_depth_level(x):
 #     for data in x:
@@ -72,10 +76,33 @@ def write_exif_to_file(x):
     new_file.close()
 
 
-def grab_mime_types(x):
-    file_types = {}
-    for item in x:
-        mimetypes.types_map[item]
+def check_file_formats(x):
+    for data in x:
+        print("Checking {0}'s file format.".format(data['File:FileName']))
+        good_check = []
+        for okay in settings[int(utk_standard)]['File_format']:
+            checked_standard = []
+            for test_standard in definitions['File_format'][okay]:
+                if test_standard in data:
+                    checked_standard.append('{0}'.format(test_standard))
+                    if data[test_standard] == definitions['File_format'][okay][test_standard][0]:
+                        good_check.append("{0} - {1}".format(test_standard, data[test_standard]))
+        if len(good_check) == 0:
+            print("\t{0} failed file format check.".format(data['File:FileName']))
+            new_key = data['File:FileName']
+            new_value = 'File format does not match standard.'
+            # new_key = data['File:FileName']
+            # new_value = 'File format does not match standard.'
+            if new_key in affected_files:
+                affected_files[new_key].append(new_value)
+            else:
+                affected_files[new_key] = []
+                affected_files[new_key].append(new_value)
+
+# def grab_mime_types(x):
+#     file_types = {}
+#     for item in x:
+#         mimetypes.types_map[item]
 
 
 def append_file(file):
@@ -83,8 +110,12 @@ def append_file(file):
 
 
 def print_dictionary(x):
+    print(x)
     for key, value in x.items():
-        problem = "{0}: {1}".format(key, value)
+        problems = ""
+        for x in value:
+            problems += "\n\t{0}".format(x)
+        problem = "{0}: {1}".format(key, problems)
         append_file(problem)
 
 
