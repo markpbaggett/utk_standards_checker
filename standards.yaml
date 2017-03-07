@@ -6,7 +6,8 @@
     - TIFF
     - JPEG2000
     - PDF/A
-  Pixel_dimensions: 400
+  Pixel_dimensions:
+    - 400
   Bit_depth:
     - 16
   Colorspace:
@@ -22,7 +23,8 @@
     - TIFF
     - JPEG2000
     - PDF/A
-  Pixel_dimensions: 400
+  Pixel_dimensions:
+    - 400
   Bit_depth:
     - 8
     - 16
@@ -41,7 +43,8 @@
     - TIFF
     - JPEG2000
     - PDF/A
-  Pixel_dimensions: 400
+  Pixel_dimensions:
+    - 400
   Bit_depth:
     - 16
   Colorspace:
@@ -56,7 +59,8 @@
   File_format:
     - TIFF
     - JPEG2000
-  Pixel_dimensions: 400
+  Pixel_dimensions:
+    - 400
   Bit_depth:
     - 8
     - 16
@@ -73,7 +77,8 @@
     - "Prints and Photographs (p. 34)"
   File_format:
     - TIFF
-  Pixel_dimensions: 600
+  Pixel_dimensions:
+    - 600
   Bit_depth:
     - 16
   Colorspace:
@@ -88,7 +93,8 @@
     - "Photographic Transparencies: 35mm to 4”x5” (p. 37)"
   File_format:
     - TIFF
-  Pixel_dimensions: 4000
+  Pixel_dimensions:
+    - 4000
   Bit_depth:
     - 16
   Colorspace:
@@ -105,7 +111,8 @@
     - "Photographic Negatives Larger than 4” x 5” (p. 44)"
   File_format:
     - TIFF
-  Pixel_dimensions: 2000
+  Pixel_dimensions:
+    - 2000
   Bit_depth:
     - 16
   Colorspace:
@@ -121,8 +128,10 @@
     - "Paintings and Other Two-Dimensional Art (Other Than Prints)* (p. 47)"
   File_format:
     - TIFF
-  Pixel_dimensions: 600
-  Long_side: 12000
+  Pixel_dimensions:
+    - 600
+  Long_side:
+    - 12000
   Bit_depth:
     - 16
   Colorspace:
@@ -137,7 +146,8 @@
   File_format:
     - TIFF
     - JPEG2000
-  Pixel_dimensions: 4000
+  Pixel_dimensions:
+    - 4000
   Bit_depth:
     - 8
   Colorspace:
