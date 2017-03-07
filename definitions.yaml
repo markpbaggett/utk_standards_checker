@@ -6,3 +6,9 @@ Colorspace:
       - "Adobe RGB (1998)"
     "EXIF:ColorSpace":
       - "65535"
+  ProPhoto:
+    - "empty"
+  ECIRGBv2:
+    - "empty"
+  Grey Gamma 2.2:
+    - "empty"
