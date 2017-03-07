@@ -26,7 +26,6 @@ def choose_files():
                 files = []
                 for item in y:
                     files.append(new_path + item)
-                    print(new_path + item)
                 all_exif = read_exif(files)
                 write_exif_to_file(all_exif)
                 # all_mimes = grab_mime_types(files)
@@ -36,47 +35,20 @@ def choose_files():
 def check_color_space(x):
     processed = 0
     for data in x:
-        # print("Processing {0}".format(data['File:FileName']))
-        # print("\t{0}".format(data))
+        print("Processing {0}".format(data['File:FileName']))
         good_colorspace = []
         for okay in settings[int(utk_standard)]['Colorspace']:
             checked_standard = []
-            # print("\t\tLooking at {0}.".format(okay))
             for test_standard in definitions['Colorspace'][okay]:
                 if test_standard in data:
                     checked_standard.append('{0}'.format(test_standard))
-                    # print("{0}: {1}".format(test_standard,data[test_standard]))
                     if data[test_standard] == definitions['Colorspace'][okay][test_standard][0]:
                         good_colorspace.append("{0} - {1}".format(test_standard, data[test_standard]))
-            # print(str(checked_standard))
-        print("{0}: {1}".format(data['File:FileName'], good_colorspace))
         if len(good_colorspace) == 0:
+            print("\t{0} failed colorspace check.".format(data['File:FileName']))
             new_key = data['File:FileName']
             new_value = 'Colorspace does not match standard.'
             affected_files[new_key] = new_value
-            # print("{0} does not meet colorspace requirements.".format(data['File:FileName']))
-                        # print("\t\t\t{0}: {1}".format(test_standard, data[test_standard]))
-            #         if test_standard not in settings[int(utk_standard)]['Colorspace']:
-            #             print(test_standard)
-            #             # print("\t{0} is in the while.".format(data['File:FileName']))
-            #             new_key = data['File:FileName']
-            #             new_value = 'Colorspace is wrong: {0}'.format(test_standard)
-            #             # print("{0} -- {1}".format(new_key, new_value))
-            #             affected_files[new_key] = new_value
-        # if 'ICC_Profile:ProfileDescription' in data:
-        #     print(data['ICC_Profile:ProfileDescription'])
-        #     print(settings[int(utk_standard)]['Colorspace'])
-        #     if data['ICC_Profile:ProfileDescription'] not in settings[int(utk_standard)]['Colorspace']:
-        #         # print("\t{0} is in the while.".format(data['File:FileName']))
-        #         new_key = data['File:FileName']
-        #         new_value = 'Colorspace is wrong: {0}'.format(data['ICC_Profile:ProfileDescription'])
-        #         print("{0} -- {1}".format(new_key, new_value))
-        #         affected_files[new_key] = new_value
-        # else:
-        #     new_key = str(data['File:FileName'])
-        #     new_value = 'Missing colorspace!'
-        #     affected_files[new_key] = new_value
-        # processed += 1
 
 
 # def check_bit_depth_level(x):
@@ -111,7 +83,6 @@ def append_file(file):
 
 
 def print_dictionary(x):
-    print(x)
     for key, value in x.items():
         problem = "{0}: {1}".format(key, value)
         append_file(problem)
