@@ -22,12 +22,17 @@ def choose_files():
         new_path = x[0] + '/'
         for y in x:
             if isinstance(y, list) and len(y) >= 1:
-                files = []
-                for item in y:
-                    files.append(new_path + item)
-                all_exif_data = read_exif(files)
-                write_exif_to_file(all_exif_data)
-                return all_exif_data
+                exif_data = bundle_file_data(y, new_path)
+                return exif_data
+
+
+def bundle_file_data(files, p):
+    file_paths = []
+    for item in files:
+        file_paths.append(p + item)
+    all_exif_data = read_exif(file_paths)
+    write_exif_to_file(all_exif_data)
+    return all_exif_data
 
 
 def check_standard(x, standard_to_check):
