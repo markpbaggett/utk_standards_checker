@@ -42,15 +42,18 @@ def check_standard(x, standard_to_check):
                     if data[test_standard] == definitions[standard_to_check][okay][test_standard][0]:
                         good_check.append("{0} - {1}".format(test_standard, data[test_standard]))
         if len(good_check) == 0:
-            print("\t{0} failed {1} check.".format(data['File:FileName'], standard_to_check.lower()))
-            new_key = data['File:FileName']
-            new_value = '{0} does not match standard.'.format(standard_to_check)
-            "test".lower()
-            if new_key in affected_files:
-                affected_files[new_key].append(new_value)
-            else:
-                affected_files[new_key] = []
-                affected_files[new_key].append(new_value)
+            populate_affected_files(data['File:FileName'], standard_to_check)
+
+
+def populate_affected_files(filename, standard):
+    print("\t{0} failed {1} check.".format(filename, standard.lower()))
+    new_key = filename
+    new_value = '{0} does not match standard.'.format(standard)
+    if new_key in affected_files:
+        affected_files[new_key].append(new_value)
+    else:
+        affected_files[new_key] = []
+        affected_files[new_key].append(new_value)
 
 
 def read_exif(x):
@@ -75,7 +78,7 @@ def append_file(file):
 
 def print_dictionary(x):
     output_header = "Reviewing standards based on the following" \
-                    " category:\n\t{0}\n---\n".format(settings[int(utk_standard)]['Title'][0])
+                    " category:\n\t{0}\n\n---\n".format(settings[int(utk_standard)]['Title'][0])
     append_file(output_header)
     for key, value in x.items():
         problems = ""
