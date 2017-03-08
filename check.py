@@ -63,7 +63,7 @@ def read_exif(x):
     try:
         with exiftool.ExifTool() as et:
             metadata = et.get_metadata_batch(x)
-        return(metadata)
+        return metadata
     except:
         pass
 
@@ -80,6 +80,9 @@ def append_file(file):
 
 
 def print_dictionary(x):
+    output_header = "Reviewing standards based on the following" \
+                    " category:\n\t{0}\n".format(settings[int(utk_standard)]['Title'][0])
+    append_file(output_header)
     for key, value in x.items():
         problems = ""
         for x in value:
