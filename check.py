@@ -29,11 +29,14 @@ def choose_files():
                 write_exif_to_file(all_exif)
                 check_standard(all_exif, "Colorspace")
                 check_standard(all_exif, "File_format")
+                check_standard(all_exif, "Bit_depth")
+                check_standard(all_exif, "Pixel_dimensions")
+                if utk_standard == "8":
+                    check_standard(all_exif, "Long_side")
     print_dictionary(affected_files)
 
 
 def check_standard(x, standard_to_check):
-    # processed = 0
     for data in x:
         print("Checking {0}'s {1}.".format(data['File:FileName'], standard_to_check.lower()))
         good_check = []
@@ -54,11 +57,6 @@ def check_standard(x, standard_to_check):
             else:
                 affected_files[new_key] = []
                 affected_files[new_key].append(new_value)
-
-
-# def check_bit_depth_level(x):
-#     for data in x:
-#         return
 
 
 def read_exif(x):
