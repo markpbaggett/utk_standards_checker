@@ -21,19 +21,13 @@ def choose_files():
     for x in os.walk(path):
         new_path = x[0] + '/'
         for y in x:
-            if isinstance(y, (list)) and len(y) >= 1:
+            if isinstance(y, list) and len(y) >= 1:
                 files = []
                 for item in y:
                     files.append(new_path + item)
-                all_exif = read_exif(files)
-                write_exif_to_file(all_exif)
-                check_standard(all_exif, "Colorspace")
-                check_standard(all_exif, "File_format")
-                check_standard(all_exif, "Bit_depth")
-                check_standard(all_exif, "Pixel_dimensions")
-                if utk_standard == "8":
-                    check_standard(all_exif, "Long_side")
-    print_dictionary(affected_files)
+                all_exif_data = read_exif(files)
+                write_exif_to_file(all_exif_data)
+                return all_exif_data
 
 
 def check_standard(x, standard_to_check):
@@ -81,15 +75,22 @@ def append_file(file):
 
 def print_dictionary(x):
     output_header = "Reviewing standards based on the following" \
-                    " category:\n\t{0}\n".format(settings[int(utk_standard)]['Title'][0])
+                    " category:\n\t{0}\n---\n".format(settings[int(utk_standard)]['Title'][0])
     append_file(output_header)
     for key, value in x.items():
         problems = ""
         for x in value:
-            problems += "\n\t{0}".format(x)
-        problem = "{0}: {1}".format(key, problems)
+            problems += "\n\t* {0}".format(x)
+        problem = "* {0}: {1}".format(key, problems)
         append_file(problem)
 
 
 if __name__ == "__main__":
-    choose_files()
+    all_exif = choose_files()
+    check_standard(all_exif, "Colorspace")
+    check_standard(all_exif, "File_format")
+    check_standard(all_exif, "Bit_depth")
+    check_standard(all_exif, "Pixel_dimensions")
+    if utk_standard == "8":
+        check_standard(all_exif, "Long_side")
+    print_dictionary(affected_files)
