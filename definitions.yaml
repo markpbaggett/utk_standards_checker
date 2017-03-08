@@ -12,3 +12,90 @@ Colorspace:
     - "empty"
   Grey Gamma 2.2:
     - "empty"
+File_format:
+  TIFF:
+    'File:FileTypeExtension':
+      - "TIF"
+  JPEG2000:
+    'File:FileTypeExtension':
+      - "JP2"
+  PDF/A:
+    'File:FileTypeExtension':
+      - "PDF"
+Bit_depth:
+  8:
+    'EXIF:BitsPerSample':
+      - '8 8 8'
+    # Looks like below maps to 8 Bits, Unsigned even though it appears as 7
+    'Jpeg2000:BitsPerComponent':
+      - '7'
+  16:
+    'EXIF:BitsPerSample':
+      - '16'
+Long_side:
+  12000:
+    'EXIF:YResolution':
+      - 12000
+    'XMP:YResolution':
+      - 12000
+    'Photoshop:YResolution':
+      - 12000
+    'EXIF:XResolution':
+      - 12000
+    'XMP:XResolution':
+      - 12000
+    'Photoshop:XResolution':
+      - 12000
+Pixel_dimensions:
+  400:
+    'EXIF:XResolution':
+      - 400
+    'XMP:XResolution':
+      - 400
+    'Photoshop:XResolution':
+      - 400
+    'EXIF:YResolution':
+      - 400
+    'XMP:YResolution':
+      - 400
+    'Photoshop:YResolution':
+      - 400
+  600:
+    'EXIF:XResolution':
+      - 600
+    'XMP:XResolution':
+      - 600
+    'Photoshop:XResolution':
+      - 600
+    'EXIF:YResolution':
+      - 600
+    'XMP:YResolution':
+      - 600
+    'Photoshop:YResolution':
+      - 600
+  2000:
+    'EXIF:XResolution':
+      - 2000
+    'XMP:XResolution':
+      - 2000
+    'Photoshop:XResolution':
+      - 2000
+    'EXIF:YResolution':
+      - 2000
+    'XMP:YResolution':
+      - 2000
+    'Photoshop:YResolution':
+      - 2000
+  4000:
+    'EXIF:XResolution':
+      - 4000
+    'XMP:XResolution':
+      - 4000
+    'Photoshop:XResolution':
+      - 4000
+    'EXIF:YResolution':
+      - 4000
+    'XMP:YResolution':
+      - 4000
+    'Photoshop:YResolution':
+      - 4000
