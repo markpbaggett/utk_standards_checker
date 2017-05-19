@@ -24,6 +24,8 @@ def choose_files():
             if isinstance(y, list) and len(y) >= 1:
                 exif_data = bundle_file_data(y, new_path)
                 return exif_data
+            else:
+                print("No files in path.")
 
 
 def bundle_file_data(files, p):
