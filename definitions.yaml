@@ -26,12 +26,15 @@ Bit_depth:
   8:
     'EXIF:BitsPerSample':
       - '8 8 8'
+      - 8
     # Looks like below maps to 8 Bits, Unsigned even though it appears as 7
     'Jpeg2000:BitsPerComponent':
       - '7'
+      - 7
   16:
     'EXIF:BitsPerSample':
       - '16'
+      - 16
       - '16 16 16'
 Long_side:
   12000:
